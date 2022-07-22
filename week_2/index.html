@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- External CSS Link -->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- Responsive Website consideration to device width  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- External fonts  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- JavaScript -->
+    <script src="./task1.js"></script>
+    <title>Brick-it | Studio's</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <br>
+        <br>
+        <!-- reference logo flaticon by martialred Royality free Lego block -->
+        <img src="./images/blocks.png" alt="Brick Block">
+        <br>
+        <br>
+        <h4 style="text-align:center">BRICK-IT | STUDIO'S</h4>
+        <br>
+    </header>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <a href="/week2/about.html">About</a>
+        <a href="/week2/index.html">Contact</a>
+    </div>
+
+    <!-- Left Content Column -->
+    <div class="row">
+        <div class="column">
+            <!-- reference image Pexels by Toni free building https://www.pexels.com/photo/white-painted-wall-776806/ -->
+            <img src="./images/contact_image.jpg" alt="Brick Block"
+                style='height: 100%; width: 100%; object-fit: contain'>
+        </div>
+
+        <!-- Right Content Column -->
+        <div class="column2">
+            <br>
+            <h2 style="text-align: center" class="contactfont">Contact Us</h2>
+            <br>
+            <p style="text-align: center" class="textpara">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eaque nulla porro amet ut itaque mollitia debitis neque quae explicabo iste dolorum excepturi, quia
+                sapiente similique inventore. Praesentium, blanditiis fuga quos, asperiores quo modi pariatur debitis
+                nesciunt eligendi nulla est error nemo accusantium minima dolore ipsum alias ducimus id odit labore!</p>
+            <form action="action_page.php">
+                <label for="name">Name</label>
+                <br>
+                <br>
+                <input type="text" id="name" name="name" placeholder="Your name..">
+                <br>
+                <br>
+                <label for="email">Email</label>
+                <br>
+                <br>
+                <input type="text" id="email" name="email" placeholder="Your email..">
+                <br>
+                <br>
+                <label for="state">State</label>
+                <br>
+                <br>
+                <select id="state" name="state">
+                    <br>
+                    <br>
+                    <option value="Victoria">Victoria</option>
+                    <option value="Queensland">Queensland</option>
+                    <option value="Northern Territory">Northern Territory</option>
+                    <option value="Western Australia">Western Australia</option>
+                    <option value="New South Wales">New South Wales</option>
+                </select>
+                <br>
+                <br>
+                <div id="app">
+                    <!-- data -->
+                    <div v-for="todo in todos" :key="todo.title"
+                        :style="{ textDecoration: todo.checked? 'line-through':'none' }">
+                        <input type="checkbox" v-model="todo.checked" />
+                        {{ todo.title }}
+                    </div>
+                </div>
+                <br>
+                <input type="submit" value="Submit" style="font-size : 14px; width: 30%; height: 20px;">
+                <br>
+                <br>
+                <br>
+                <h4>Brick-it Studio's &copy 2022</h4>
+                <br>
+                <!-- JavaScript button to print -->
+                <button onclick="window.print()" class="btn_print">Print this page</button>
+                <br>
+                <br>
+        </div>
+</body>
+
+</html>
+<script src="./todo.js"></script>

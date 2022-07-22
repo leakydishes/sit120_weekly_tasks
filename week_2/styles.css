@@ -1,0 +1,141 @@
+/* External CSS*/
+
+/* Google fonts Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+/* universal selector*/
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(54, 54, 54);
+    line-height: 1.6;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* header */
+.header {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+/* Navigation update */
+.nav {
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    text-decoration: none;
+}
+
+/* Style the topnav links */
+.nav a {
+    float: left;
+    display: block;
+    color: rgb(54, 54, 54);
+    text-align: center;
+    padding: 1% 2%;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Columns */
+.column {
+    float: left;
+    width: 50%;
+    min-height: 100%;
+    margin: 10px 0%;
+    font-weight:300;
+    line-height: 1.2;
+}
+
+/* Clear floats after the columns */
+.column2 {
+    float: right;
+    width: 50%;
+    min-height: 100%;
+}
+
+form {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5%;
+}
+
+.myCanvas {
+    margin-left: 1%;
+}
+
+/* Columns */
+.indeximage {
+    width: 100%;
+    min-height: 100%;
+    margin: 0%;
+}
+
+.textpara {
+    margin-right: 10%;
+    margin-left: 10%; 
+}
+
+.contactfont {
+    margin-top: 5%;
+}
+
+/* Responsive layout - columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+
+    .column,
+    .column2 {
+        width: 100%;
+    }
+}
+
+/* HD Tasks Additional Page Contact and Media Content */
+#myCanvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+}
+
+.youtube-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.map-container
+{
+    position: relative;
+    overflow: hidden;
+    width: 10%;
+    display: block;
+    content: "";
+    padding-top: 56.25%;
+}
+
+.youtube-container::after {
+    display: block;
+    content: "";
+    padding-top: 56.25%;
+}
+
+.youtube-container iframe, .map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

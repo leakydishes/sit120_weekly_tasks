@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- External CSS Link -->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- Responsive Website consideration to device width  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Internal CSS -->
+    <style type=text/css>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <!-- JavaScript -->
+    <script src="./task1.js"></script>
+    <title>Brick-it Studio's</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <!-- reference logo flaticon by martialred Royality free Lego block -->
+        <img src="./images/blocks.png" alt="Brick Block" class="blocklogo">
+        <!-- Navigation -->
+        <ul class="links_nav">
+            <a>
+                <li>Home</li>
+            </a>
+            <a>
+                <li>Bricks</li>
+            </a>
+            <a>
+                <li>Contact</li>
+            </a>
+        </ul>
+    </header>
+
+    <!-- Left Content Column -->
+    <div class="row">
+        <div class="column">
+            <!-- reference image Pexels by John Lee Royality free building -->
+            <img src="./images/building.jpg" alt="Brick Block" style='height: 100%; width: 100%; object-fit: contain'>
+        </div>
+
+
+        <!-- Right Content Column -->
+        <div class="column2">
+            <h2 style="text-align: right; padding-right: 10%; padding-top:5%; text-transform: uppercase;" ;>Contact</h2>
+
+            <form action="action_page.php">
+                <label for="fname">First Name</label>
+                <br>
+                <br>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <br>
+                <br>
+                <br>
+                <label for="email">Email</label>
+                <br>
+                <br>
+                <input type="text" id="email" name="email" placeholder="Your email..">
+                <br>
+                <br>
+                <br>
+
+                <label for="state">State</label>
+                <br>
+                <br>
+                <select id="state" name="state">
+                    <br>
+                    <br>
+                    <option value="Victoria">Victoria</option>
+                    <option value="Queensland">Queensland</option>
+                    <option value="Northern Territory">Northern Territory</option>
+                    <option value="Western Australia">Western Australia</option>
+                    <option value="New South Wales">New South Wales</option>
+                </select>
+                <br>
+                <br>
+                <br>
+
+                <label for="subject">Subject</label>
+                <br>
+                <br>
+                <textarea id="subject" name="subject" placeholder="Write something.."
+                    style="height:200px; width: 300px;"></textarea>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Submit" style="font-size : 14px; width: 30%; height: 50px;">
+                <br>
+                <br>
+
+                <!-- JavaScript date -->
+                <p id="demo"></p>
+
+                <script>
+                    const d = new Date();
+                    document.getElementById("demo").innerHTML = d.getFullYear();
+                </script>
+                <br>
+                <div id="app">
+                    <!-- data -->
+                    <div v-for="todo in todos" :key="todo.title"
+                        :style="{ textDecoration: todo.checked? 'line-through':'none' }">
+                        <input type="checkbox" v-model="todo.checked" />
+                        {{ todo.title }}
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- footer -->
+        <div id="footer">
+            <!-- Inline CSS -->
+            <h4 style="font-size: 12px;">Brick-it Studio's &copy 2022</h4>
+            <br>
+            <!-- JavaScript button to print -->
+            <button onclick="window.print()" class="btn_print">Print this page</button>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./todo.js"></script>
