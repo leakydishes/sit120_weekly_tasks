@@ -101,6 +101,9 @@ body {
     margin-bottom: 1%;
 }
 
+.btn_print {
+    margin-top: 2%;
+}
 
 /* Responsive layout - columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
