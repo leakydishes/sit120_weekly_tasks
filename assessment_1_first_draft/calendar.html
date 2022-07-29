@@ -25,9 +25,7 @@
 <body>
     <!-- Header/ logo Section -->
     <header class="logo">
-        <a href="./index.html">
-            <h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%;">LIST-IT</h4>
-        </a>
+        <a href="./index.html"><h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%;">LIST-IT</h4></a>
     </header>
 
     <!-- Navigation -->
@@ -45,7 +43,7 @@
     <!-- Date Header -->
     <div class="header">
         <div>
-            <h1 class="dailytaskheader">DAILY TASKS</h1>
+            <h1 class="dailytaskheader">CALENDAR</h1>
         </div>
 
         <!-- day -->
@@ -64,47 +62,8 @@
             document.getElementById("date").innerHTML = date;
         </script>
     </div>
+    </div>
 
-    <!-- User enters task/ input -->
-    <div class="container" id="todo">
-        <header>
-            <section class="panel">
-                <!-- user add tasks here -->
-                <input type="text" placeholder="ENTER TASK">
-            </section>
-        </header>
-
-        <!-- Left Content Column TASKS are stored-->
-        <div class="row">
-            <div class="column1">
-                <h4>TASKS</h4>
-                <!-- Tasks stored here -->
-                <ul class="list">
-                    <li class="inputlist">
-                        <!-- user data stored here -->
-                        <!-- Tasks stored here / buttons to be replaced by user input-->
-                        <button class="button button1" type="button">Yoga <i class="fa fa-trash"
-                            style="font-size:30px"></i></button>
-                        <button class="button button2" type="button">Assessment 1 <i class="fa fa-trash"
-                            style="font-size:30px"></i></button>
-                        <button class="button button3" type="button">Cafe <i class="fa fa-trash"
-                                style="font-size:30px"></i></button>
-                    </li>
-
-                </ul>
-                <!-- Uncomment next line to display input data to see JS and Vue working-->
-                <!-- <pre>{{ $data }}</pre> -->
-            </div>
-            <!-- Right Content Column TASKS are stored-->
-            <div class="column2">
-                <h4>LISTS</h4>
-                <!-- Tasks stored here / buttons to be replaced by user input-->
-                <button class="button button3" type="button">Work</button>
-                <button class="button button2" type="button">Study</button>
-                <button class="button button1" type="button">Life</button>
-            </div>
 </body>
 
 </html>
-
-<script src="./main.js"></script>

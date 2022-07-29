@@ -15,43 +15,85 @@ body {
     line-height: 1.6;
 }
 
-/* header */
-.header {
+/* logo */
+.logo {
     background-color: #ffffff;
     text-align: center;
-}
-
-/* Navigation update */
-.nav {
-    overflow: hidden;
-    background-color: #ffffff;
-    display: flex;
-    text-decoration: none;
-    align-items: center;
+    padding-top: 5%;
     padding-bottom: 5%;
 }
 
-/* Style the topnav links */
-.nav a {
-    display: block;
-    color: rgb(54, 54, 54);
+/* Start of Navigation styling */
+nav,
+ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    overflow: hidden;
+    padding-bottom: 5%;
+}
+
+nav,
+li {
+    display: inline-block;
+}
+
+nav,
+li,
+a {
+    display: inline-block;
+    color: white;
     text-align: center;
-    padding: 3% 9%;
     text-decoration: none;
 }
+
+/* highlights which navigation icon you are on */
+.nav ul li a:hover {
+    background: #d6d6d6;
+    padding: 40%;
+}
+
 .border {
     border-bottom: 5px solid #1e3b51;
 }
+/* end of Navigation styling */
 
-
-/* Change color on hover */
-.nav a:hover {
-    background-color: #ddd;
-    color: black;
+.dailytaskheader
+{
+    text-align: center;
+    padding-top: 5%;
+    font-size: 50px;
 }
 
-/* Columns */
-.column {
+#day {
+    font-size: 40px;
+    color: #1e3b51;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 1%;
+    text-transform: uppercase;
+}
+
+#date {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+/* Enter task - user input */
+.container input {
+    min-height: 40px;
+    border: solid;
+    text-align: center;
+    font-size: 25px;
+}
+
+/* Centers user input button */
+.panel {
+    text-align: center;
+}
+
+/* Column first */
+.column1 {
     float: left;
     width: 50%;
     min-height: 100%;
@@ -61,17 +103,34 @@ body {
     margin-top: 5%;
 }
 
-/* Clear floats after the columns */
+/* Column second */
 .column2 {
-    float: right;
+    float: left;
     width: 50%;
     min-height: 100%;
+    margin: 10px 0%;
+    line-height: 1.2;
     text-align: center;
     margin-top: 5%;
 }
 
-/* Buttons */
-.button {
+.list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-bottom: 10%;
+}
+
+/* Icon button styling for padding/ remove border */
+button {
+    min-width: 10px;
+    background: none;
+    border: none;
+    font-size: 1px;
+}
+
+/* Prototype buttons to be replaced with text input */
+.button1, .button2, .button3{
     border: none;
     color: white;
     padding: 15px 32px;
@@ -86,7 +145,7 @@ body {
 }
 
 .button1 {
-    background-color: #1e3b51;
+    background-color: #959ea5;
     margin-bottom: 1%;
 }
 
@@ -101,15 +160,13 @@ body {
     margin-bottom: 1%;
 }
 
-.btn_print {
-    margin-top: 2%;
-}
+
 
 /* Responsive layout - columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
 
-    .column,
-    .column2 {
+    .column1,
+    .column2{
         width: 100%;
     }
 }
