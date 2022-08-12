@@ -1,0 +1,79 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.image {
+    height: 70%; 
+    width: 100%; 
+    object-fit: contain;
+    padding-bottom: 5%;
+}
+
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+.header {
+    padding: 20px;
+    text-align: center;
+    background:#616b58;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    background:#ded9cd;
+}
+
+/* Nav Links */
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Hover */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* left */
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main {
+    flex: 70%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background:#ded9cd;
+    color: white;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+
+    .row,
+    .navbar {
+        flex-direction: column;
+    }
+}

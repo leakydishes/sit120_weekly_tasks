@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task1</title>
+</head>
+
+<body>
+
+    <!-- First Vue Test -->
+    <div id="app"
+        style="padding-bottom: 5%; padding-top: 5%; text-align: center; font-size: 40px; background-color: deepskyblue; color: whitesmoke;">
+        <h1>{{ title }}</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+    <!-- Second Vue Test -->
+    <div id="app-2" style="padding-bottom: 5%; text-align: center; font-size: 40px; padding-top: 5%;">
+        <span v-bind:title="message">
+            Hover here - When did you view this page?
+        </span>
+    </div>
+
+
+    <!-- Third Vue Test -->
+    <div id="app-5" style="text-align: center; font-size: 30px;">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Secret Message</button>
+    </div>
+
+
+</body>
+
+</html>
+<script src="./app1.js"></script>

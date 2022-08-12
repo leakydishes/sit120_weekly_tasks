@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- External CSS Link -->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- Responsive Website consideration to device width  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Athenaeum Shop</title>
+</head>
+
+<body>
+    <!-- install vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>The Athenaeum Shop</h1>
+    </div>
+
+    <!-- Nav Bar -->
+    <div class="navbar">
+        <a href="#">Skin Care</a>
+        <a href="#">Hair</a>
+        <a href="#">Fragrance</a>
+        <a href="#">Store</a>
+    </div>
+
+    <!-- Flexible Grid -->
+    <div class="row">
+        <div class="side">
+            <h2>Hydration</h2>
+            <!-- Image from pexel royalty free https://www.pexels.com/photo/cleaning-brush-and-soaps-on-table-with-line-chip-4202465/ -->
+            <img src="./images/lotion.jpg" alt="Lotion" style='height: 50%; width: 100%; object-fit: contain'>
+
+            <h3>Discover the formulation</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, non, aperiam cum provident dolorum fugiat
+                eos nam aliquid atque tempora temporibus dicta porro voluptate dolor excepturi qui deleniti vitae
+                molestias?</p>
+
+
+            <!-- Product -->
+        </div>
+        <div class="main" id="app">
+            <h2>{{ product }}</h2>
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+            <ul>
+                <li v-for="details in details">{{ details }}</li>
+            </ul>
+            <div v-for="variant in variants" :key="variant.variantId">
+                <button v-on:mouseover="updateProduct(variant.variantImage)">{{ variant.variantType }}</button>
+                <br>
+            </div>
+            <br>
+            <button v-on:click="cart +=1">Add to Cart</button>
+            <div class="cart">
+                <p>Cart({{ cart }})</p>
+            </div>
+
+            <!-- Image reference from pexel royalty free https://www.pexels.com/photo/crop-person-with-soap-in-brush-7262393/-->
+            <img class="image" v-bind:src="image" alt="soap image">
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h2>The Athenaeum Shop &copy 2022</h2>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
