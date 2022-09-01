@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Responsive Website consideration to device width  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JavaScript Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Internal CSS -->
+    <!-- reference logo flaticon by  Aleksandar Pasaric Royality free -->
+    <style type=text/css>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-image: url('./images/background.jpg');
+            background-size: cover;
+        }
+
+        .class {
+            background-size: auto auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 style="color: rgb(58, 58, 58);">TASK 3</h1>
+    <br>
+    <p>PICK A RANDOM NUMBER FROM THIS CUSTOM EVENT!</p>
+    <br>
+    <br>
+    <div id="app">
+        <component1 @random="random"></component1>
+        <p>random number: {{ count }}</p>
+    </div>
+    </div>
+</body>
+
+</html>
+<script type="text/x-template" id="component1">
+
+    <div>
+        <button @click ="random">random</button>
+    </div>
+</script>
+
+<script>
+    var component1 = {
+        template: '#component1',
+        methods: {
+            random: function () {
+                this.$emit('random', Math.random());
+            },
+        },
+    };
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 0,
+        },
+        methods: {
+            random: function (random) {
+                this.count = random;
+            },
+        },
+        components: {
+            component1,
+        },
+    });
+</script>
