@@ -2,85 +2,113 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- External CSS Link -->
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <!-- Responsive Website consideration to device width  -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- External fonts  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- JavaScript Vue -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Vue template -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <!-- Awesome Font icons royalty free W3Schools -->
-    <!-- https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>LIST-IT</title>
+    <title>Task 2</title>
+    <!-- internal css -->
+    <style>
+
+        .componentprops {
+            display: block;
+            background-color: rgb(123, 181, 148);
+            height: 100px;
+            text-align: center;
+            padding-top: 4em;
+        }
+
+        .app2 {
+            display: block;
+            background-color: lightblue;
+            height: 100px;
+            text-align: center;
+            padding-top: 4em;
+            padding-bottom: 2em;
+        }
+
+    </style>
+
 </head>
 
 <body>
-    <!-- Header/ logo Section -->
-    <header class="logo">
-        <a href="./index.html">
-            <h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%;">LIST-IT</h4>
-        </a>
-    </header>
+    <!-- first Prop -->
+    <div id="app">
+        {{ message }}
 
-    <!-- Navigation -->
-    <div class="nav">
-        <ul>
-            <li><a href="./profile.html"><i class="fa fa-user-o" style="font-size:48px;color:black"></i></a></li>
-            <li><a href="./index.html"><i class="fa fa-plus-square-o" style="font-size:48px;color:black"></i></a></li>
-            <li><a href="./calendar.html"><i class="fa fa-calendar" style="font-size:48px;color:black"></i></a></li>
-            <li><a href="./lists.html"><i class="fa fa-reorder" style="font-size:48px;color:black"></i></a></li>
-            <li><a href="./notes.html"><i class="fa fa-sticky-note-o" style="font-size:48px;color:black"></i></a></li>
-        </ul>
+        <div class="componentprops">
+            <!-- using inline template instead of template in Vue.Component here -->
+            <component-props inline-template propsname="Here the prop value is being passed! (Prop 1)">
+                <div>
+                    {{ message }}
+                    <br>
+                    <!-- Props here can bind to another element -->
+                    {{ propsname }}
+                </div>
+            </component-props>
+        </div>
     </div>
-    <div class="border"></div>
 
-    <!-- Header -->
-    <div class="header">
-        <div>
-            <h1 class="dailytaskheader">TASK 3</h1>
+
+    <!-- Second Prop -->
+    <div class="app2">
+        <div id="app2">
+            <component1 :person="person"></component1>
+            <br>
+            <component2 v-for="poem in poem" :poem="poem"></component2>
         </div>
+    </div>
 
+    <script>
+        //new component here
+        Vue.component('component-props', {
+            // this props is being rendered in the div class
+            props: ["propsname"],
+            data() {
+                return {
+                    message: "Hello from props component!"
+                }
+            }
+        })
+        //Vue app
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    message: "Learning about props!"
+                }
+            }
+        })
+    </script>
 
-        <!-- TASK 3 -->
-        <div class="task2">
-            <div id="app">
-                <component1 :person="person"></component1>
-                <br>
-                <component2 v-for="poem in poem":poem="poem"></component2>
-            </div>
-        </div>
-</body>
-</html>
-
-<script>
-    var component1 = {
-        template: '<div>Hello {{ person.firstName }} {{person.lastName}},  its nice to meet you! </div>',
-        props: ['person'],
-    };
-    var component2 = {
-        template: '<div>{{ poem }}</div>',
-        props: ['poem'],
-    };
-    var app = new Vue({
-        el: '#app',
-        data: {
-            person: {
-                firstName: 'Harry',
-                lastName: 'Thomas',
+    <script>
+        var component1 = {
+            template: '<div>Hello {{ person.firstName }} {{person.lastName}},  its nice to meet you! (Prop 2) </div>',
+            props: ['person'],
+        };
+        var component2 = {
+            template: '<div>{{ poem }}</div>',
+            props: ['poem'],
+        };
+        var app = new Vue({
+            el: '#app2',
+            data: {
+                person: {
+                    firstName: 'Harry',
+                    lastName: 'Thomas',
+                },
+                poem: ['I don’t know how you arrived HERE so fast', 'but I see the path you took is not important', 'that you are here now is all that matters.'],
             },
-            poem:['I don’t know how you arrived HERE so fast', 'but I see the path you took is not important', 'that you are here now is all that matters.'],
-        },
 
-        components: {
-            component1,
-            component2,
-        },
-    });
-</script>
+            components: {
+                component1,
+                component2,
+            },
+        });
+    </script>
+
+</body>
+
+</html>
