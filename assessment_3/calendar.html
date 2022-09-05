@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- External CSS Link -->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- Responsive Website consideration to device width  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- External fonts  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- JavaScript Vue -->
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Awesome Font icons royalty free W3Schools -->
+    <!-- https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>LIST-IT</title>
+</head>
+
+<body>
+    <!-- Header/ logo Section -->
+    <header class="logo">
+        <a href="./index.html"><h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%;">LIST-IT</h4></a>
+    </header>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <ul>
+            <li><a href="./profile.html"><i class="fa fa-user-o" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./index.html"><i class="fa fa-plus-square-o" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./calendar.html"><i class="fa fa-calendar" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./lists.html"><i class="fa fa-reorder" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./notes.html"><i class="fa fa-sticky-note-o" style="font-size:48px;color:black"></i></a></li>
+        </ul>
+    </div>
+    <div class="border"></div>
+
+    <!-- Date Header -->
+    <div class="header">
+        <div>
+            <h1 class="dailytaskheader">CALENDAR</h1>
+        </div>
+
+        <!-- day -->
+        <p id="day"></p>
+        <script>
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const fullday = new Date();
+            let day = days[fullday.getDay()];
+            document.getElementById("day").innerHTML = day;
+        </script>
+
+        <!-- year -->
+        <p id="date"></p>
+        <script>
+            const date = new Date();
+            document.getElementById("date").innerHTML = date;
+        </script>
+    </div>
+    </div>
+
+    <div id="task3">
+        <select v-model="selected">
+            <option value="" disabled>SELECT VIEW</option>
+            <option>MONTH</option>
+            <option>WEEK</option>
+        </select>
+        <span> Selected: {{ selected }}</span>
+        <br>
+    </div>
+    <script>
+        var task3 = new Vue({
+            el: '#task3',
+            data: {
+                selected: '',
+            },
+        });
+    </script>
+
+</body>
+
+</html>
