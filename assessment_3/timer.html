@@ -25,7 +25,10 @@
 <body>
     <!-- Header/ logo Section -->
     <header class="logo">
-        <a href="./index.html"><h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%;">LIST-IT</h4></a>
+        <a href="./index.html">
+            <h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%; color:  #1e3b51;">
+                LIST-IT</h4>
+        </a>
     </header>
 
     <!-- Navigation -->
@@ -33,7 +36,6 @@
         <ul>
             <li><a href="./profile.html"><i class="fa fa-user-o" style="font-size:48px;color:black"></i></a></li>
             <li><a href="./index.html"><i class="fa fa-plus-square-o" style="font-size:48px;color:black"></i></a></li>
-            <li><a href="./calendar.html"><i class="fa fa-calendar" style="font-size:48px;color:black"></i></a></li>
             <li><a href="./lists.html"><i class="fa fa-reorder" style="font-size:48px;color:black"></i></a></li>
             <li><a href="./notes.html"><i class="fa fa-sticky-note-o" style="font-size:48px;color:black"></i></a></li>
         </ul>
@@ -43,7 +45,7 @@
     <!-- Date Header -->
     <div class="header">
         <div>
-            <h1 class="dailytaskheader">CALENDAR</h1>
+            <h1 class="dailytaskheader">TIMER</h1>
         </div>
 
         <!-- day -->
@@ -64,24 +66,34 @@
     </div>
     </div>
 
-    <div id="task3">
-        <select v-model="selected">
-            <option value="" disabled>SELECT VIEW</option>
-            <option>MONTH</option>
-            <option>WEEK</option>
-        </select>
-        <span> Selected: {{ selected }}</span>
-        <br>
+    <h2 style="text-align:center;">POMODOR TIMER - 25 MIN -</h2>
+    <br>
+    <br>
+
+    <!-- timer -->
+    <div class="base-timer">
+        <!-- create vector graphic of circle SVG-->
+        <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g class="timer">
+                <circle class="base-timer" cx="50" cy="50" r="46.5" />
+            </g>
+        </svg>
     </div>
-    <script>
-        var task3 = new Vue({
-            el: '#task3',
-            data: {
-                selected: '',
-            },
-        });
-    </script>
+    <br>
+
+    <div class="containercenter" id="app">
+        <div class="timertext">
+            <div id="timerbuttons" v-html="time"></div>
+            <div class="timerbuttons">
+                <button class="b1" @click="timerRun" v-if="!timerRunning">START</button>
+                <button class="b3" @click="timerReset" v-if="timerRunning">RESTART</button>
+                <button class="b2" @click="timerPause" v-if="timerRunning">PAUSE</button>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 
 </html>
+<script src="./main.js"></script>

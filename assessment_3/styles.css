@@ -6,21 +6,258 @@
     box-sizing: border-box;
     margin: 0%;
     padding: 0%;
+}
+
+/*  #72816d --> nice green */
+
+/* Removes dark lines around borders*/
+input:not([type="checkbox"]),
+button {
+    appearance: none;
+    background: none;
+    cursor: initial;
+    border: none;
+    outline: none;
+}
+
+/* style user input */
+input[type=text] {
     color: #1e3b51;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.title {
+    padding-left: 12%;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #ffffff;
     line-height: 1.6;
+    background: #EEE;
+    color: #1e3b51;
 }
+
+/* Selection for to do list to be indented */
+section {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    background: #FFF;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+h3 {
+    color: rgb(43, 43, 43);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    color: rgb(141, 141, 141);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* title flex which gets rid of box */
+.greeting .title {
+    display: flex;
+}
+
+/* stretch the input title and space out */
+.greeting .title input {
+    margin-left: 0.5rem;
+    min-width: 0;
+    flex: 1 1 0%;
+}
+
+.greeting .title,
+.greeting .title input {
+    color: rgb(43, 43, 43);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* user input box */
+.create-todo input[type="text"] {
+    display: block;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    color: #1e3b51;
+    background-color: #FFF;
+    border-radius: 0.5rem;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    box-sizing: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* styling on each task */
+.options {
+    display: block;
+    background-color: #FFF;
+    color: #1e3b51;
+    list-style-type: none;
+    padding: 2%;
+    position: relative;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    margin-top: 2%;
+    text-align: center;
+}
+
+/* Start button area for delete/close */
+.buttonsubmitnote {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: #FFF;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    background-color: #1e3b51;
+}
+
+/* Close X styling */
+.close {
+    position: relative;
+    box-sizing: border-box;
+    line-height: 10px;
+    text-align: right;
+    height: 10px;
+    width: 10px;
+}
+
+/* Styling X and transforming */
+.close:before,
+.close:after {
+    transform: rotate(-45deg);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -1px;
+    margin-left: -5px;
+    display: block;
+    height: 2px;
+    width: 10px;
+    background-color: #1e3b51;
+    transition: all 0.25s ease-out;
+}
+
+/* creates the X element with crossing over \ / */
+.close:after {
+    transform: rotate(-135deg);
+}
+
+/* Creates a transparent indicator user is hovering over X button */
+.close:hover:before,
+.close:hover:after {
+    background: rgba(30, 59, 81, 0.20);
+    border-radius: 6rem;
+}
+/* End button area for delete/close */
+
+/* users input -- insert note here */
+textarea {
+    display: block;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 400px;
+    max-width: 600px;
+    padding: 50px;
+    padding-top: 2rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    resize: horizontal;
+}
+
+/* user input for note storage*/
+#app,
+.option {
+    display: block;
+    flex-flow: column wrap;
+    margin: 0 auto;
+    height: 600px;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+#app>div {
+    display: block;
+    padding-bottom: 2%;
+    margin-top: 2%;
+    color: #1e3b51;
+    background-color: #FFF;
+    padding: 2%;
+    position: relative;
+    list-style-type: none;
+}
+
+#app>* {
+    border-radius: 2px;
+    transition: all ease 0.4s;
+}
+
+/* EDITTING THIS SECTION START */
+/* timer circle */
+.base-timer {
+    display: block;
+    margin: auto;
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+/* timer circle styling */
+.timer {
+    fill: none;
+    stroke: none;
+    stroke-width: 7px;
+    stroke: #1e3b51;
+    margin-left: 20%;
+}
+
+/* timer button text */
+.timertext {
+    text-align: center;
+}
+
+/* timer button */
+.b1, .b2, .b3 {
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition-duration: 0.4s;
+    background: #EEE;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* EDITTING THIS SECTION END */
 
 /* logo */
 .logo {
-    background-color: #ffffff;
     text-align: center;
     padding-top: 5%;
     padding-bottom: 5%;
+    color: #1e3b51;
+}
+
+.header {
+    color: #1e3b51;
+    text-align: center;
 }
 
 /* Start of Navigation styling */
@@ -42,27 +279,15 @@ nav,
 li,
 a {
     display: inline-block;
-    color: white;
+    color: #EEE;
     text-align: center;
     text-decoration: none;
 }
 
 /* highlights which navigation icon you are on */
 .nav ul li a:hover {
-    background: #d6d6d6;
-    padding: 40%;
-}
-
-.border {
-    border-bottom: 5px solid #1e3b51;
-}
-/* end of Navigation styling */
-
-.dailytaskheader
-{
-    text-align: center;
-    padding-top: 5%;
-    font-size: 50px;
+    background: rgba(30, 59, 81, 0.20);
+    border-radius: 6rem;
 }
 
 #day {
@@ -94,18 +319,6 @@ a {
     padding-bottom: 5%;
 }
 
-/* Enter task - user input */
-.container input {
-    min-height: 40px;
-    border: solid;
-    text-align: center;
-    font-size: 25px;
-}
-
-/* Centers user input button */
-.panel {
-    text-align: center;
-}
 
 /* Column first */
 .column1 {
@@ -130,67 +343,11 @@ a {
 }
 
 
-.inputlist {
-    display:block;
-    list-style-type:none;
-    background-color: #d0d3d5;
-    padding: 2%;
-    position: relative;
-}
-
-.list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding-bottom: 10%;
-}
-
-/* Icon button styling for padding/ remove border */
-button {
-    min-width: 10px;
-    background: none;
-    border: none;
-    font-size: 1px;
-}
-
-/* Prototype buttons to be replaced with text input */
-.button1, .button2, .button3{
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    height: 60px;
-    width: 300px;
-}
-
-.button1 {
-    background-color: #1e3b51;
-    margin-bottom: 1%;
-}
-
-/* Green */
-.button2 {
-    background-color: #2c6087;
-    margin-bottom: 1%;
-}
-
-.button3 {
-    background-color: #3c5f3b;
-    margin-bottom: 1%;
-}
-
-
-
 /* Responsive layout - columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
 
     .column1,
-    .column2{
+    .column2 {
         width: 100%;
     }
 }

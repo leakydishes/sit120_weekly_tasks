@@ -2,46 +2,61 @@
 new Vue({
 
     //connects vue to id todo in index.html
-    el: "#todo",
-
-    //all data from index is passed into here
+    el: '#todo',
     data: {
-        //empty string 
-        newTask: "",
-        //empty array taskList
-        taskList: []
+        task: {
+            text: ''
+        },
+        tasks: [{
+            text: 'Daily Tasks'
+        }]
     },
-
     methods: {
-        //adds one task to the function
-        addTask: function () {
-            //remove white space with method time()
-            let task = this.newTask.trim();
-            //if user types an input/ data is not blank it is then passed
-            if (task) {
-                //pushed to the array taskList declared in data
-                this.taskList.push({
-                    text: task
-                });
-                //Clear import to empty for new user input
-                this.newTask = "";
-            }
+        // adds note to array
+        addTask() {
+            let {
+                text
+            } = this.task
+            this.tasks.push({
+                text,
+            })
+            this.task.text = ''
         },
-
-        //remove task listed by clicking the bin icon
-        removeTask: function (task) {
-            //data is moved friom tasklist to task and then passed to index to be removed/spliced
-            let index = this.taskList.indexOf(task);
-            this.taskList.splice(index, 1);
+        removeTask(index) {
+            this.$delete(this.tasks, index)
         },
-        //allows the taks to be passed into targetValue to be checked using boolean 
-        selectAll: function (task) {
-            //targetValue is set to the opposite of areAllSelected
-            let targetValue = this.areAllSelected ? false : true;
-            //check state of all items to the target value and pass targetview if variable is greater then taskList length
-            for (let i = 0; i < this.taskList.length; i++) {
-                this.taskList[i].checked = targetValue;
-            }
-        }
+    },
+    // store in local storage using Vue mounted
+    mounted() {
+        if (localStorage.getItem('tasks')) this.tasks = JSON.parse(localStorage.getItem('tasks'));
+    },
+    //watch for user input
+    watch: {
+        tasks: {
+            handler() {
+                localStorage.setItem('tasks', JSON.stringify(this.tasks));
+            },
+            deep: true,
+        },
     }
 });
+
+//add event listener JavaScript for name input to store
+window.addEventListener('load', () => {
+    // username for tasks
+    const nameInput = document.querySelector('#name');
+    const username = localStorage.getItem('username') || '';
+
+    nameInput.value = username;
+
+    // listen for name and store local storage
+    nameInput.addEventListener('change', (e) => {
+        localStorage.setItem('username', e.target.value);
+    })
+});
+
+// Insert timer information here
+
+
+
+
