@@ -15,6 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- JavaScript Vue -->
     <script src="./main.js"></script>
+        <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- Awesome Font icons royalty free W3Schools -->
     <!-- https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
@@ -25,7 +26,7 @@
 <body>
     <!-- Header/ logo Section -->
     <header class="logo">
-        <a href="./index.html">
+        <a href="./profile.html">
             <h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%; color:  #1e3b51;">
                 LIST-IT</h4>
         </a>
@@ -36,63 +37,56 @@
         <ul>
             <li><a href="./profile.html"><i class="fa fa-user-o" style="font-size:48px;color:black"></i></a></li>
             <li><a href="./index.html"><i class="fa fa-plus-square-o" style="font-size:48px;color:black"></i></a></li>
-            <li><a href="./lists.html"><i class="fa fa-reorder" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./timer.html"><i class="fa fa-hourglass-1" style="font-size:44px;color:black"></i></a></li>
             <li><a href="./notes.html"><i class="fa fa-sticky-note-o" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./settings.html"><i class="fa fa-cog" style="font-size:48px;color:black"></i></a></li>
         </ul>
     </div>
     <div class="border"></div>
 
-    <!-- Date Header -->
+    <!-- Header -->
     <div class="header">
         <div>
             <h1 class="dailytaskheader">TIMER</h1>
         </div>
-
-        <!-- day -->
-        <p id="day"></p>
-        <script>
-            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            const fullday = new Date();
-            let day = days[fullday.getDay()];
-            document.getElementById("day").innerHTML = day;
-        </script>
-
-        <!-- year -->
-        <p id="date"></p>
-        <script>
-            const date = new Date();
-            document.getElementById("date").innerHTML = date;
-        </script>
-    </div>
     </div>
 
-    <h2 style="text-align:center;">POMODOR TIMER - 25 MIN -</h2>
-    <br>
-    <br>
-
-    <!-- timer -->
-    <div class="base-timer">
-        <!-- create vector graphic of circle SVG-->
-        <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <g class="timer">
-                <circle class="base-timer" cx="50" cy="50" r="46.5" />
-            </g>
-        </svg>
-    </div>
-    <br>
-
-    <div class="containercenter" id="app">
-        <div class="timertext">
-            <div id="timerbuttons" v-html="time"></div>
-            <div class="timerbuttons">
-                <button class="b1" @click="timerRun" v-if="!timerRunning">START</button>
-                <button class="b3" @click="timerReset" v-if="timerRunning">RESTART</button>
-                <button class="b2" @click="timerPause" v-if="timerRunning">PAUSE</button>
+        <!-- timer -->
+        <div id="clock" style="margin-top: 5%;">
+            <!-- Reference, Staffan Noteberg (2013). Pomodoro technique illustrated : the easy way to do more in less time -->
+            <h4 class="clockmessage"><i>{{inspo}}</i></h4>
+            <br>
+            <br>
+            <h3 class="clockmessage">{{about}}</h3>
+            <br>
+            <br>
+            <h2 class="clockmessage">{{statement}}</h2>
+            <br>
+            <br>
+            <!-- v-html updates the elements innerHTML with input data time displays the clock from vue computed elements-->
+            <div id="clockcounter" v-html="displayClock"></div>
+            <br>
+            <div class="clockbuttons">
+                <!-- four buttons, start, restart and pause -->
+                <!-- start button shows and reappears when paused as active is set to false -->
+                <button class="b1" @click="start" v-if="!active">START</button>
+                <button class="b3" @click="reset" v-if="active">RESTART</button>
+                <button class="b2" @click="pause" v-if="active">PAUSE</button>
             </div>
         </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="footer">
+        <!-- Button to print -->
+        <button class="printpage" onclick="window.print()">Print</button>
+        <h4>LIST IT &copy 2022</h4>
     </div>
-
-
 </body>
 
 </html>

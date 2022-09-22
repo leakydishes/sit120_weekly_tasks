@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- External CSS Link -->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- Responsive Website consideration to device width  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- External fonts  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- JavaScript Vue -->
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Awesome Font icons royalty free W3Schools -->
+    <!-- https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>LIST-IT</title>
+</head>
+
+<body>
+    <!-- Header/ logo Section -->
+    <header class="logo">
+        <a href="./profile.html">
+            <h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%; color:  #1e3b51;">
+                LIST-IT</h4>
+        </a>
+    </header>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <ul>
+            <li><a href="./profile.html"><i class="fa fa-user-o" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./index.html"><i class="fa fa-plus-square-o" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./timer.html"><i class="fa fa-hourglass-1" style="font-size:44px;color:black"></i></a></li>
+            <li><a href="./notes.html"><i class="fa fa-sticky-note-o" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./settings.html"><i class="fa fa-cog" style="font-size:48px;color:black"></i></a></li>
+        </ul>
+    </div>
+    <div class="border"></div>
+
+    <!-- Date Header -->
+    <div class="header">
+        <div>
+            <h1 class="dailytaskheader">SETTINGS</h1>
+        </div>
+
+        <br>
+        <div id="profileSelector">
+            <br>
+            <!-- Component plan-picker-family -->
+            <plan-picker-family></plan-picker-family>
+        </div>
+
+        <script type="text/x-template" id="plan-picker-template">
+        <div style="display: flex;">
+            <br>
+            <plan v-for="plan in plans" :name="plan"></plan>
+        </div>
+    </script>
+
+        <script type="text/x-template" id="plan-template">
+    <div class="description">
+        <span class="changeplan">
+            {{ name }}
+        </span>
+    </div>
+    </script>
+
+        <!-- settings -->
+        <div class="header">
+            <div>
+                <h1 class="dailytaskheader" style="margin-bottom: 5%;">YOUR PLAN DETAILS</h1>
+            </div>
+
+            <!-- column 1 -->
+            <div>
+                <div class="column">
+                    <div class="profilenamebox">
+                        <h2 class="profilenames">FAMILY PLAN</h2>
+                        <br>
+                        <h2 style="font-size: 1.2rem;">3 MEMBERS <BR><BR> 1 TIMER <BR><BR> 3GB storage <BR><BR>
+                            unlimited notes <BR><BR> unlimited tasks</h2>
+                    </div>
+                </div>
+
+                <!-- column 2 -->
+                <div class="column">
+                    <h2 class="profilenames">MARTHA</h2>
+                    <img src="./images/martha.jpg" alt="profilepicture" class="smlprofilepic">
+                    <h2>ABOUT</h2>
+                    <h3 class="aboutinfo">I am a writer, photographer and teacher. I am currently written my third book
+                        'Travels in the Wild' with publisher Pengiun Books.</h3>
+                </div>
+            </div>
+
+            <!-- column 3 -->
+            <div class="column">
+                <h2 class="profilenames">CLAIRE</h2>
+                <img src="./images/claire.jpg" alt="profilepicture" class="smlprofilepic">
+                <h2>ABOUT</h2>
+                <h3 class="aboutinfo">I am a full time student studying Politics. I enjoy playing tennis on the weekends
+                    and
+                    am in the Cadets Club.</h3>
+            </div>
+
+            <!-- column 4 -->
+            <div class="column">
+                <h2 class="profilenames">HARRY</h2>
+                <img src="./images/harry.jpg" alt="profilepicture" class="smlprofilepic">
+                <h2>ABOUT</h2>
+                <h3 class="aboutinfo">I am an engineer who is currently working on gravity force at NASA. I am a singer/
+                    keyboard player for the band Four24.</h3>
+            </div>
+        </div>
+
+        <!-- plan options -->
+        <div class="header">
+            <div>
+                <h1 class="dailytaskheader" style="margin-bottom: 5%;">UPDATE YOUR PLAN</h1>
+            </div>
+        </div>
+
+        <!-- Show plan options -->
+        <div id="planreq">
+            <button class="buttonsubmitplan" v-on:click="show = !show">SHOW PLAN OPTIONS</button>
+            <transition name="fade">
+                <div class="plansformat">
+                    <img width="300" src="./images/plan2.png" v-if="show">
+                    <img width="300" src="./images/plan1.png" v-if="show">
+                    <img width="300" src="./images/plan3.png" v-if="show">
+                </div>
+            </transition>
+        </div>
+
+        <div id="changeplan">
+            <div id="counter-event-example">
+
+                <p style="font-size:25px; margin-left: 5%;">REQUESTED PLAN: <b>{{ planclicked }}</b></p>
+
+                <div style="display: flex;"></div>
+                <button-counter v-for="(item, index) in plans" v-bind:item="item" v-bind:index="index"
+                    v-on:showplan="plandisp" class="changeplan"></button-counter>
+            </div>
+        </div>
+
+        <!-- Send email button -->
+        <div id="showContact">
+            <button class="buttonsubmitplan" v-on:click="show = !show">CONTACT US</button>
+            <transition name="fade">
+                <div v-if="show">
+                    <h2><a href="mailto: contact@list-it.com"></a></h2>
+                    <h2>EMAIL SENT! WAIT 2-3 BUSSINESS DAYS FOR REPLY </h2>
+
+                    <!-- show email button -->
+                    <h3 class="sendemail"><a href="https://zoom.us/">contact@list-it.com</a></h3>
+                    <br>
+                    <br>
+                </div>
+            </transition>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <div id="footer">
+            <!-- Button to print -->
+            <button class="printpage" onclick="window.print()">Print</button>
+            <h4>LIST IT &copy 2022</h4>
+        </div>
+</body>
+
+</html>
+<script src="./main.js"></script>

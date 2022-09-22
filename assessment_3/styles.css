@@ -8,43 +8,21 @@
     padding: 0%;
 }
 
-/*  #72816d --> nice green */
+/* ************** */
+/* GLOBAL STYLES */
 
-/* Removes dark lines around borders*/
-input:not([type="checkbox"]),
-button {
-    appearance: none;
-    background: none;
-    cursor: initial;
-    border: none;
-    outline: none;
+/* printing */
+@media print {
+    @page {
+        size: landscape
+    }
 }
 
-/* style user input */
-input[type=text] {
-    color: #1e3b51;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.title {
-    padding-left: 12%;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    background: #EEE;
-    color: #1e3b51;
-}
-
-/* Selection for to do list to be indented */
-section {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 h1 {
@@ -65,6 +43,138 @@ h4 {
     font-weight: 700;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
+}
+
+/* Removes dark lines around borders*/
+input:not([type="checkbox"]),
+button {
+    appearance: none;
+    background: none;
+    cursor: initial;
+    border: none;
+    outline: none;
+}
+
+/* style user input */
+input[type=text] {
+    color: #1e3b51;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+/* Day and date styling Globally */
+#day {
+    font-size: 40px;
+    color: #1e3b51;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 1%;
+    text-transform: uppercase;
+}
+
+#date {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.title {
+    padding-left: 12%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: #EEE;
+    color: #1e3b51;
+}
+
+/* ************** */
+/* GLOBAL STYLES */
+/* footer styling */
+#footer {
+    width: 100%;
+    bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 60px;
+    letter-spacing: 3px;
+    display: block;
+    text-align: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: #EEE;
+    height: 100px;
+    position: fixed;
+    margin: auto;
+}
+
+.printpage {
+    display: box;
+    width: 15%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.10rem;
+    color: #FFF;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    background-color: rgba(30, 59, 81, 0.50);
+    margin-bottom: 1rem;
+}
+
+/* ************** */
+/* BANNER GLOBAL*/
+.logo {
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: #1e3b51;
+}
+
+.header {
+    color: #1e3b51;
+    text-align: center;
+}
+
+/* Start of Navigation styling */
+nav,
+ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    overflow: hidden;
+    padding-bottom: 5%;
+}
+
+nav,
+li {
+    display: inline-block;
+}
+
+nav,
+li,
+a {
+    display: inline-block;
+    color: #EEE;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* highlights which navigation icon you are on */
+.nav ul li a:hover {
+    background: rgba(30, 59, 81, 0.20);
+    border-radius: 6rem;
+}
+
+/* ************** */
+/* TASK PAGE*/
+section {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 /* title flex which gets rid of box */
@@ -113,6 +223,8 @@ h4 {
     text-align: center;
 }
 
+/* ************** */
+/* TASK PAGE/ NOTE PAGE*/
 /* Start button area for delete/close */
 .buttonsubmitnote {
     display: block;
@@ -166,7 +278,25 @@ h4 {
     background: rgba(30, 59, 81, 0.20);
     border-radius: 6rem;
 }
-/* End button area for delete/close */
+
+/* ************** */
+/* TASK PAGE*/
+.alltaskscomplete {
+    display: block;
+    width: 40%;
+    height: 10%;
+    margin-left: 30%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: rgb(30, 59, 81);
+    background-color: #FFF;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    margin-bottom: 5%;
+}
 
 /* users input -- insert note here */
 textarea {
@@ -183,7 +313,11 @@ textarea {
     resize: horizontal;
 }
 
-/* user input for note storage*/
+.userinput {
+    padding-top: 10px;
+}
+
+/* user input for note storage */
 #app,
 .option {
     display: block;
@@ -210,97 +344,42 @@ textarea {
     transition: all ease 0.4s;
 }
 
-/* EDITTING THIS SECTION START */
-/* timer circle */
-.base-timer {
+/* ************** */
+/* PROFILE PAGE*/
+.login {
+    background-color: #FFF;
+}
+
+.outputnamebutton {
     display: block;
-    margin: auto;
-    position: relative;
-    width: 300px;
-    height: 300px;
-}
-
-/* timer circle styling */
-.timer {
-    fill: none;
-    stroke: none;
-    stroke-width: 7px;
-    stroke: #1e3b51;
-    margin-left: 20%;
-}
-
-/* timer button text */
-.timertext {
-    text-align: center;
-}
-
-/* timer button */
-.b1, .b2, .b3 {
-    padding: 16px;
-    font-size: 1rem;
-    font-weight: 600;
-    transition-duration: 0.4s;
-    background: #EEE;
-    text-align: center;
-    cursor: pointer;
-}
-
-/* EDITTING THIS SECTION END */
-
-/* logo */
-.logo {
-    text-align: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    color: #1e3b51;
-}
-
-.header {
-    color: #1e3b51;
-    text-align: center;
-}
-
-/* Start of Navigation styling */
-nav,
-ul {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    overflow: hidden;
-    padding-bottom: 5%;
-}
-
-nav,
-li {
-    display: inline-block;
-}
-
-nav,
-li,
-a {
-    display: inline-block;
-    color: #EEE;
-    text-align: center;
-    text-decoration: none;
-}
-
-/* highlights which navigation icon you are on */
-.nav ul li a:hover {
-    background: rgba(30, 59, 81, 0.20);
-    border-radius: 6rem;
-}
-
-#day {
-    font-size: 40px;
-    color: #1e3b51;
-    text-align: center;
-    padding-top: 5%;
-    padding-bottom: 1%;
+    width: 20%;
+    margin-left: 40%;
+    font-size: 1.125rem;
+    padding: 2rem 1.5rem;
+    color: #FFF;
+    font-weight: 700;
     text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    margin-bottom: 5%;
+
+    background-color: #1E3B51;
 }
 
-.userinput {
-    padding-top: 10px;
+.buttonprofile {
+    display: block;
+    width: 70%;
+    margin-left: 14%;
+    font-size: 1.125rem;
+    padding: 2rem 1.5rem;
+    color: #FFF;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    margin-bottom: 5%;
 }
 
 .profilepic {
@@ -314,12 +393,198 @@ a {
     padding-bottom: 5%;
 }
 
-#date {
-    text-align: center;
-    padding-bottom: 5%;
+.profiletemplate {
+    padding-bottom: 50%;
 }
 
+/* Profile user stats */
+#userstats {
+    display: box;
+    padding-top: 5%;
+}
 
+.my-list {
+    margin-bottom: 10%;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 22px;
+    font-size: 1.5rem;
+}
+
+.list {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: #1e3b51;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    background-color: #FFF;
+    text-align: center;
+}
+
+.colormap {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+/* ************** */
+/* TIMER PAGE*/
+.clockbuttons {
+    display: block;
+    padding-bottom: 2%;
+    margin-top: 2%;
+    color: #1e3b51;
+    background-color: #FFF;
+    padding: 2%;
+    position: relative;
+    list-style-type: none;
+    text-align: center;
+}
+
+.clockmessage {
+    text-align: center;
+}
+
+#clockcounter {
+    font-size: 5rem;
+    font-weight: 600;
+    color: #1e3b51;
+    text-align: center;
+}
+
+/* timer buttons */
+.b1,
+.b2,
+.b3 {
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition-duration: 0.4s;
+    background: #EEE;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ************** */
+/* SETTING PAGE*/
+.changeplan {
+    display: inline-block;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    transition: 0.2s ease-out;
+    background-color: #1e3b51;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    margin: 5%;
+    text-align: centre;
+    margin-bottom: 5%;
+    cursor: pointer;
+    margin-left: 9%;
+}
+
+.profilenames {
+    padding-top: 10%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.smlprofilepic {
+    padding-top: 5%;
+    padding-bottom: 10%;
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.aboutinfo {
+    padding-bottom: 50%;
+    margin: 20%;
+}
+
+.planchange {
+    padding-right: 5%;
+}
+
+.profilenamebox {
+    width: 300px;
+    color: #EEE;
+    background-color: #1e3b51;
+    padding-bottom: 10%;
+    align-items: center;
+    text-align: center;
+    margin: 10%;
+}
+
+.buttonsubmitplan {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: #FFF;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    background-color: #1e3b51;
+    margin-top: 5%;
+}
+
+/* Show button/ fade in out transition */
+.fade-enter-active,
+.fade-leave-active {
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-active {
+    opacity: 0
+}
+
+.plansformat {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    overflow: hidden;
+    padding-bottom: 5%;
+    padding-top: 10%;
+}
+
+.sendemail {
+    margin-top: 5%;
+    display: box;
+    width: 30%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.10rem;
+    color: #FFF;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    background-color: rgba(30, 59, 81, 0.50);
+    margin-bottom: 1rem;
+    margin-left: 35%;
+}
+
+/* ***************************** */
+/* BOX MODEL PAGE LAYOUTS */
+
+/* Start Profile page box model */
 /* Column first */
 .column1 {
     float: left;
@@ -342,12 +607,32 @@ a {
     margin-top: 5%;
 }
 
+/* End Profile page box model */
 
-/* Responsive layout - columns stack on top of each other instead of next to each other */
+
+/* Start Setting page box model */
+.column {
+    float: left;
+    width: 25%;
+}
+
+/* End Setting page box model */
+
+/* Responsive layout */
+/* columns stack on top of each other instead of next to each other */
+/* TWO COLUMNS */
 @media screen and (max-width: 600px) {
 
     .column1,
     .column2 {
+        width: 100%;
+    }
+}
+
+/* FOUR COLUMNS */
+@media screen and (max-width: 1200px) {
+
+    .column {
         width: 100%;
     }
 }

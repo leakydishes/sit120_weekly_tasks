@@ -25,7 +25,7 @@
 <body>
     <!-- Header/ logo Section -->
     <header class="logo">
-        <a href="./index.html">
+        <a href="./profile.html">
             <h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%; color:  #1e3b51;">
                 LIST-IT</h4>
         </a>
@@ -36,75 +36,128 @@
         <ul>
             <li><a href="./profile.html"><i class="fa fa-user-o" style="font-size:48px;color:black"></i></a></li>
             <li><a href="./index.html"><i class="fa fa-plus-square-o" style="font-size:48px;color:black"></i></a></li>
-            <li><a href="./timer.html"><i class="fa fa-reorder" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./timer.html"><i class="fa fa-hourglass-1" style="font-size:44px;color:black"></i></a></li>
             <li><a href="./notes.html"><i class="fa fa-sticky-note-o" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./settings.html"><i class="fa fa-cog" style="font-size:48px;color:black"></i></a></li>
         </ul>
     </div>
     <div class="border"></div>
 
-    <!-- Date Header -->
+    <!-- Profile -->
     <div class="header">
         <div>
             <h1 class="dailytaskheader">PROFILE</h1>
         </div>
+        <br>
 
-        <!-- day -->
-        <p id="day"></p>
-        <script>
-            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            const fullday = new Date();
-            let day = days[fullday.getDay()];
-            document.getElementById("day").innerHTML = day;
-        </script>
+<!-- Add name bind/ filter -->
+        <div id="login" class="login">
+            <h2>REGISTER NAME</h2>
+            <p>ENTER YOUR NAME </p>
+            <select v-model="selected">
+                <option disabled value="">Select Title</option>
+                <option>Mr.</option>
+                <option>Miss. </option>
+                <option>Mrs.</option>
+                <option>Maddam. </option>
+                <option>Sir. </option>
+            </select>
+            <span>{{ selected }}</span> <br>
+            <input type="text" v-model="firstName" placeholder="Enter first name">
+            <p>{{firstName}}</p>
+            <input type="text" v-model="lastName" placeholder="Enter last name">
+            <p>{{lastName}}</p>
 
-        <!-- year -->
-        <p id="date"></p>
-        <script>
-            const date = new Date();
-            document.getElementById("date").innerHTML = date;
-        </script>
-
-        <!-- Column 1 -->
-        <div class="column1">
-            <!-- reference logo flaticon by martialred Royality free -->
-            <img src="./images/profile.jpg" alt="profilepicture" class="profilepic">
+            <button class="outputnamebutton">Full Name</button>
+            <p>{{selected |capitalize}} {{firstName |capitalize}} {{lastName |capitalize}}</p>
         </div>
 
-        <!-- Column 2 -->
 
-        <div class="column2">
-            <br>
-            <br>
-            <br>
-            <div id="userinput">
-                <div id="userinput">
-                    <br>
-                    <br>
-                    <h2 class="title">Hello, <input type="text" id="profilename" placeholder="Enter name"
-                            v-model="myInput" style="padding-top: 5%;"></h2>
-                    <br>
-                    <br>
-                    <p>PASSWORD</p>
-                    <input type="password" placeholder="ENTER PASSWORD">
-                    <br>
-                    <br>
-                    <p>MONTH</p>
-                    <input type="month" />
-                    <br>
-                    <br>
+        <!-- Profile information -->
+        <div id="profile" class="profiletemplate">
+            <!-- Column 1 -->
+            <div class="column1">
+                <!-- person image -->
+                <div class="person-image">
+                    <!-- ATTRIBUTE BINDING -->
+                    <img class="profilepic" v-bind:src="image" alt="profile picture">
                 </div>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
 
-                <script>
-                    var userinput = new Vue({
-                        el: '#userinput',
-                        data: {
-                            myInput: ""
-                        },
-                    });
-                </script>
+            <!-- Column 2 -->
+            <div class="column2">
+                <!-- Profile select person -->
+                <div class="person-info">
+
+                    <!-- computed property -->
+                    <h2>{{ title }}</h2>
+
+                    <!-- CONDITIONAL RENDERING -->
+                    <div v-colorful.foo="'#9FB1BC'">
+                        <p v-if="subscription > 7">VALID SUBSCRIPTION</p>
+                        <p v-else-if="subscription <= 7 && subscription > 0">SUBSCRIPTION EXPIRES IN 7 DAYS</p>
+                        <p v-else>SUBSCRIPTION EXPIRED</p>
+                        <br>
+                    </div>
+                    <h4>{{ qoute }}</h4>
+                    <br>
+                    <h3>{{ name }}</h3>
+                    <br>
+                    <!-- LIST RENDERING & CLASS/ STYLE BINDING -->
+                    <div v-for="(variant, index) in variants" :key="variant.variantId" class="buttonprofile"
+                        :style="{ backgroundColor: variant.variantPerson }" @click="updatePerson(index)">
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
+    <!-- User information -->
+    <div id="userstats">
+        <!--Activity-->
+        <my-list :items="users" title="ACTIVITY">
+            <template scope="user">
+                <div>{{ user.name }} <small>({{ user.days }} days)</small></div>
+            </template>
+        </my-list>
+
+        <!--Users-->
+        <my-list :items="colors" title="USERS">
+            <template scope="color">
+                <div>
+                    <div class="colormap" :style="{ background: color.hex }"></div>
+                    {{ color.name }}
+                </div>
+            </template>
+        </my-list>
+    </div>
+
+    <div>
+        <script type="text/x-template" id="my-list">
+        <div class="my-list">
+            <div class="title">{{ title }}</div>
+                <div class="list">
+                    <div class="list-item" v-for="item in items">
+                        <slot v-bind="item"></slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </script>
+    </div>
+    <br>
+
+    <div id="footer">
+        <!-- Button to print -->
+        <button class="printpage" onclick="window.print()">Print</button>
+        <h4>LIST IT &copy 2022</h4>
+    </div>
 </body>
 
 </html>
+
+<script src="./main.js"></script>

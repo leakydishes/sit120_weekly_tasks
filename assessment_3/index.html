@@ -7,18 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- External CSS Link -->
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <!-- Responsive Website consideration to device width  -->
+    <!-- Responsive  -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- External fonts  -->
+    <!-- External fonts nav bar  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- JavaScript Vue -->
+    <!-- Vue js -->
     <script src="./main.js"></script>
+    <!-- Vue2 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <!-- Awesome Font icons royalty free W3Schools -->
-    <!-- https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
+    <!-- font style sheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>LIST-IT</title>
 </head>
 
@@ -36,8 +37,9 @@
         <ul>
             <li><a href="./profile.html"><i class="fa fa-user-o" style="font-size:48px;color:black"></i></a></li>
             <li><a href="./index.html"><i class="fa fa-plus-square-o" style="font-size:48px;color:black"></i></a></li>
-            <li><a href="./timer.html"><i class="fa fa-reorder" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./timer.html"><i class="fa fa-hourglass-1" style="font-size:44px;color:black"></i></a></li>
             <li><a href="./notes.html"><i class="fa fa-sticky-note-o" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./settings.html"><i class="fa fa-cog" style="font-size:48px;color:black"></i></a></li>
         </ul>
     </div>
     <div class="border"></div>
@@ -46,52 +48,83 @@
     <div class="header">
         <div>
             <h1 class="dailytaskheader">DAILY TASKS</h1>
-            <h2 class="title">Hello, <input type="text" id="name" placeholder="Enter name" style="padding-top: 5%;">
-            </h2>
         </div>
 
-
-        <!-- day -->
-        <p id="day"></p>
+        <!-- HTML div elements for Vue Mix in -->
         <script>
             const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             const fullday = new Date();
             let day = days[fullday.getDay()];
-            document.getElementById("day").innerHTML = day;
-        </script>
-
-        <!-- year -->
-        <p id="date"></p>
-        <script>
             const date = new Date();
-            document.getElementById("date").innerHTML = date;
         </script>
     </div>
 
+    <!-- Mix in showing day and date-->
+    <div id="mix">
+        <div id="day"> {{ dateDay }}</div>
+        <br>
+        <div id="date">{{ date }}</div>
+    </div>
+
+    <script>
+        //mix in
+        Vue.mixin({
+            data() {
+                return {
+                    date: document.getElementById("date").innerHTML = date,
+                }
+            }
+        });
+
+        // global vue root instance returning variable with value
+        new Vue({
+            el: '#mix',
+            data() {
+                return {
+                    dateDay: document.getElementById("day").innerHTML = day,
+                }
+            }
+        });
+    </script>
 
     <!-- User enters task/ input -->
     <div class="create-todo" id="todo">
         <h3 style="padding-left: 2%; color:  #1e3b51;">CREATE A TO DO</h3>
         <header>
             <section id="new-todo-form">
-                <h4>Whats on your to do list today?</h4>
-
+                <!-- Form input binding using v-model -->
                 <input type="text" placeholder="ENTER TASK" autofocus class="text-input" v-model="task.text" />
 
+                <!-- EVENT HANDLING, Listen to the @click for an event -->
+                <!-- submit task button -->
                 <button class="buttonsubmitnote" @click="addTask">Submit</button>
             </section>
         </header>
 
         <!-- options for removing tasks-->
+        <!-- LIST RENDERING V-FOR declares the index variable & v-for maps elements-->
         <div class="options">
             <div v-for="(task, index) in tasks">
-                <div class="top">
+                <div class="taskedit">
+                    <!-- delete task -->
                     <button class="close" @click="removeTask(index)"></button>
                 </div>
                 {{task.text}}
             </div>
         </div>
     </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="footer">
+        <!-- Button to print -->
+        <button class="printpage" onclick="window.print()">Print</button>
+        <h4>LIST IT &copy 2022</h4>
     </div>
 </body>
 

@@ -25,7 +25,7 @@
 <body>
     <!-- Header/ logo Section -->
     <header class="logo">
-        <a href="./index.html">
+        <a href="./profile.html">
             <h4 style="text-align:center; font-size: 30px; padding-top: 5%; padding-bottom: 5%; color:  #1e3b51;">
                 LIST-IT</h4>
         </a>
@@ -36,8 +36,9 @@
         <ul>
             <li><a href="./profile.html"><i class="fa fa-user-o" style="font-size:48px;color:black"></i></a></li>
             <li><a href="./index.html"><i class="fa fa-plus-square-o" style="font-size:48px;color:black"></i></a></li>
-            <li><a href="./timer.html"><i class="fa fa-reorder" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./timer.html"><i class="fa fa-hourglass-1" style="font-size:44px;color:black"></i></a></li>
             <li><a href="./notes.html"><i class="fa fa-sticky-note-o" style="font-size:48px;color:black"></i></a></li>
+            <li><a href="./settings.html"><i class="fa fa-cog" style="font-size:48px;color:black"></i></a></li>
         </ul>
     </div>
     <div class="border"></div>
@@ -47,94 +48,53 @@
         <div>
             <h1 class="dailytaskheader">NOTES</h1>
         </div>
+        <br>
 
-        <!-- day -->
-        <p id="day"></p>
-        <script>
-            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            const fullday = new Date();
-            let day = days[fullday.getDay()];
-            document.getElementById("day").innerHTML = day;
-        </script>
-
-        <!-- year -->
-        <p id="date"></p>
-        <script>
-            const date = new Date();
-            document.getElementById("date").innerHTML = date;
-        </script>
+        <div id="userClickFinishTask">
+            <button-counter></button-counter>
+        </div>
 
         <!-- notes -->
-
-        <div id="app">
-
-            <h2>DAILY NOTES</h2>
-
-            <!-- autofocus is a boolean attribute, states the textarea should be focused when page loads -->
+        <h2>DAILY NOTES</h2>
+        <br>
+        <br>
+        <div id="note">
+            <!-- Form input binding using v-model -->
             <div style="background-color: #EEE; padding-bottom: 5%;"><textarea autofocus placeholder="ENTER NOTE"
                     v-model="note.text"></textarea></div>
 
             <!-- Submit button for the users note -->
+            <!-- EVENT HANDLING, Listen to the @click for an event -->
             <button class="buttonsubmitnote" @click="addNote">Submit</button>
 
-            <!-- removed note from note array in vue with clicking the close/ exit button -->
+            <!-- LIST RENDERING V-FOR declares the index variable & v-for maps elements-->
             <div v-for="(note, index) in notes">
                 <div class="top">
                     <button class="close" @click="removeNote(index)"></button>
+                    <!-- <i> is italic in HTML -->
                     <i>{{note.date}}</i>
                 </div>
                 {{note.text}}
             </div>
         </div>
-        <script>
-            var app = new Vue({
-                el: '#app',
-                data: {
-                    note: {
-                        text: '',
-                        date: ''
-                    },
-                    notes: [{
-                        text: 'Daily notes',
-                        date: new Date(Date.now()).toLocaleString()
-                    }]
-                },
-                methods: {
-                    // adds note to array
-                    addNote() {
-                        let {
-                            text, title, color
-                        } = this.note
-                        this.notes.push({
-                            text,
-                            date: new Date(Date.now()).toLocaleString(),
-                        })
-                        this.note.text = ''
-                    },
-                    removeNote(index) {
-                        this.$delete(this.notes, index)
-                    },
-
-                },
-                // store in local storage using Vue mounted
-                mounted() {
-                    if (localStorage.getItem('notes')) this.notes = JSON.parse(localStorage.getItem('notes'));
-                },
-                //watch for user input
-                watch: {
-                    notes: {
-                        handler() {
-                            localStorage.setItem('notes', JSON.stringify(this.notes));
-                        },
-                        deep: true,
-                    },
-                }
-            })
-        </script>
-
     </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div id="footer">
+        <!-- Button to print -->
+        <button class="printpage" onclick="window.print()">Print</button>
+        <h4>LIST IT &copy 2022</h4>
     </div>
 
 </body>
 
 </html>
+
+<script src="./main.js"></script>
