@@ -46,7 +46,7 @@ h4 {
 }
 
 /* Removes dark lines around borders*/
-input:not([type="checkbox"]),
+input:not([type="checkbox"]):not([type="radio"]),
 button {
     appearance: none;
     background: none;
@@ -277,6 +277,27 @@ section {
 .close:hover:after {
     background: rgba(30, 59, 81, 0.20);
     border-radius: 6rem;
+}
+
+/* ************** */
+/* NOTE PAGE*/
+.usermessagetime {
+    padding-bottom: 5%;
+}
+
+.messagebutton {
+    display: in-line;
+    padding-bottom: 2%;
+    margin-top: 2%;
+    color: #FFF;
+    background-color: #1e3b51;
+    padding: 2%;
+    position: relative;
+    list-style-type: none;
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-bottom: 5;
 }
 
 /* ************** */

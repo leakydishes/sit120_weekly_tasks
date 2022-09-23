@@ -94,6 +94,46 @@ var todo = new Vue({
 });
 
 // NOTE PAGE
+//Time and message to user
+Vue.component("timetab", {
+    data() {
+        return {
+            showDetails: false
+        };
+    },
+    template: `  
+      <div>  
+        <h1>TIME GOAL = 3 HOURS</h1>  
+        <button class="messagebutton" style="background-color: #A8763E;" @click='showDetails = !showDetails'>  
+          CLICK HERE TO SEE HOW MUCH TIME TODAY 
+        </button>  
+        <div v-if='showDetails'>  
+          3 HOURS, WELL DONE!
+        </div>  
+      </div>  
+    `
+});
+
+Vue.component("messagetab", {
+    data() {
+        return {
+            showDetails: false
+        };
+    },
+    template: `  
+      <div>  
+        <h1 style="color: #A8763E;">'ACTIVITY LEADS TO PRODUCTIVITY' - JIM ROHN</h1>  
+      </div>  
+    `
+});
+
+new Vue({
+    el: "#usermessage",
+    data: {
+        inputButtons: "timetab"
+    }
+});
+
 // adding notes similar implimentation as array
 var note = new Vue({
     el: '#note',

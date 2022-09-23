@@ -50,9 +50,14 @@
         </div>
         <br>
 
-        <div id="userClickFinishTask">
-            <button-counter></button-counter>
-        </div>
+        <!-- Time and message to user -->
+        <div id="usermessage" class="usermessagetime">
+            <button class="messagebutton" @click='inputButtons = "timetab"'>TIME</button>  
+            <button class="messagebutton" @click='inputButtons = "messagetab"'>MESSAGE</button>  
+            <keep-alive>  
+              <component v-bind:is="inputButtons"></component>  
+            </keep-alive>  
+          </div>  
 
         <!-- notes -->
         <h2>DAILY NOTES</h2>
