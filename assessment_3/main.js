@@ -282,7 +282,7 @@ var profile = new Vue({
         subscriptionType: 'FAMILY',
         person: 'PROFILE',
         selectedVariant: 0,
-        subscription: 30,
+        subscription: 6,
         qoute: 'Amateurs sit and wait for inspiration, the rest of us just get up and go to work ― Stephen King',
         name: 'PICK USER PROFILE',
         variants: [
